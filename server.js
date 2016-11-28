@@ -1,32 +1,39 @@
-//Lets require/import the HTTP module
-var fs = require("fs");
-var path = require("path")
-var http = require("http");
+const fs = require("fs");
+const path = require("path");
+const http = require("http");
 
-//Lets define a port we want to listen to
-const PORT=8080; 
+const MIME_TYPES = {
+    ".html": "text/html",
+    ".css": "text/css",
+    ".jpg": "image/jpeg"
+};
 
+const server = http.createServer(function(req, res) {
 
-//Create a server
-var server = http.createServer(function(req, res) {
+    var fileName = null;
+    var file = null;
 
-	var fileName = null;
-	var file = null;
+    if(req.url === "/" || req.url === "/index.html") {
+        fileName = "index.html";
+    } else {
+        fileName = req.url.slice(1);
+    }
 
-	if(req.url === "/" || req.url === "index.html") {
-		fileName = "index.html"
-	}
+    file = fs.createReadStream(path.join(__dirname, "app/assets/", fileName));
 
-	file = fs.createReadStream(path.join(__dirname, "app", fileName));
+    file.on("error", function(err) {
 
-	res.writeHead(200, {"Content-Type": "text/html"});
+        res.writeHead(404, "Not Found");
+        res.end();
 
-	file.pipe(res);
+    });
 
+    res.writeHead(200, {"Content-Type": MIME_TYPES[path.extname(fileName)]});
+
+    file.pipe(res);
 
 });
 
-//Lets start our server
-server.listen(PORT, function(){
-    console.log("Server listening on: http://localhost:%s", PORT);
+server.listen(8080, function() {
+    console.log("Serwer uruchomiony pod adresem: http://localhost:8080");
 });

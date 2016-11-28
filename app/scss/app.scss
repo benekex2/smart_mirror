@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+$fa-font-path: "~font-awesome/fonts";
+$OpenSansPath: "~open-sans-fontface/fonts";
+
+@import "~open-sans-fontface/sass/variables";
+@import "~open-sans-fontface/sass/mixins";
+@import "~open-sans-fontface/sass/Light";
+@import "~open-sans-fontface/sass/Regular";
+@import "~open-sans-fontface/sass/Bold";
+@import "~font-awesome/scss/font-awesome";
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #fff;
+}
