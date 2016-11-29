@@ -45,11 +45,10 @@ var config = {
         loader: 'json'
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         loader: ExtractTextPlugin.extract([
           'css?sourceMap',
           'postcss',
-          'sass'
         ])
       },
       {

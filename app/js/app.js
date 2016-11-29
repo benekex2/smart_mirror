@@ -1,3 +1,3 @@
 import $ from 'jquery'
 
-import '../scss/app.scss'
+import '../css/app.css'
