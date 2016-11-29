@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start_server": "nodemon server.js",
+    "server": "nodemon server.js",
     "build": "UV_THREADPOOL_SIZE=8 node ./node_modules/webpack/bin/webpack.js -p",
     "start": "UV_THREADPOOL_SIZE=8 node ./node_modules/webpack/bin/webpack.js -d --watch"
   },
