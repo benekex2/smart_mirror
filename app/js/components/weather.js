@@ -1,40 +1,69 @@
-import React from 'react'	
+import React from 'react'
+import moment from 'moment'	
 
 export class Weather extends React.Component {
 
 	state = {
-		temp: "",
-		pressure: "",
-		humidity: ""
+		cityName: '',
+		weatherList: []
 	}
 
-	componentWillMount() {
-		let api_url = "http://api.openweathermap.org/data/2.5/weather?"
-		let api_key = "0997af5b9449c9c472cfe9cc4d1d8895"
- 		fetch("http://api.openweathermap.org/data/2.5/weather?q=Wroclaw,uk&units=metric&appid=0997af5b9449c9c472cfe9cc4d1d8895", {
+	iconTable: {
+		"01d": "wi-day-sunny",
+		"02d": "wi-day-cloudy",
+		"03d": "wi-cloudy",
+		"04d": "wi-cloudy-windy",
+		"09d": "wi-showers",
+		"10d": "wi-rain",
+		"11d": "wi-thunderstorm",
+		"13d": "wi-snow",
+		"50d": "wi-fog",
+		"01n": "wi-night-clear",
+		"02n": "wi-night-cloudy",
+		"03n": "wi-night-cloudy",
+		"04n": "wi-night-cloudy",
+		"09n": "wi-night-showers",
+		"10n": "wi-night-rain",
+		"11n": "wi-night-thunderstorm",
+		"13n": "wi-night-snow",
+		"50n": "wi-night-alt-cloudy-windy"
+	}
+
+	getData() {
+
+ 		fetch("http://api.openweathermap.org/data/2.5/forecast/daily?id=2673730&mode=json&units=metric&appid=0997af5b9449c9c472cfe9cc4d1d8895", {
  			method: 'GET',
  		}).then(res => {
  	        res.json().then((data) => {  
  	        this.setState({
- 	          temp: data.main.temp,
- 	          pressure: data.main.pressure,
- 	          humidity: data.main.humidity
+ 	          cityName: data.city.name,
+ 	          weatherList: data.list
  	        });
  	      });
  		});
+
+	}
+
+	componentWillMount() {
+		this.getData();
  	}
+
 
 	render() {
 
-		const temp = this.state.temp;
-		const pressure = this.state.pressure;
-		const humidity = this.state.humidity;
-
+		const cityName = this.state.cityName;
+		const weatherList = this.state.weatherList;
+		
     	return (
     		<div>
-        		<h2>Temperatura: {temp} C</h2>
-        		<h2>Cisnienie: {pressure} hpa</h2>
-        		<h2>Wilgotnosc: {humidity} %</h2>
+        		{cityName}
+        		{weatherList ? (weatherList.map((item, index) => {
+        				const date = moment.unix(item.dt).format('dddd');
+						return (
+							<p key={index}>{date} - {item.temp.day}</p>
+						);
+					})
+				) : (null)}
         	</div>
        	);
     }
