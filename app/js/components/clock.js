@@ -43,9 +43,12 @@ export class Clock extends React.Component {
   }
 
 	render() {
+
+		const date = moment().format('dddd, LL');
 		
 		return (
 			<div className="city-row" ref="cityRow">
+				{date}
 		        <span className="city-time">{this.state.hours}:{this.state.minutes}:{this.state.seconds}</span>
 		    </div>
 	   	);
