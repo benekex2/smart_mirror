@@ -52,8 +52,8 @@ var config = {
         ])
       },
       {
-        test: /\.(eot|otf|png|svg|ttf|woff|woff2)(\?v=[0-9.]+)?$/,
-        loader: 'file?name=[name].[hash].[ext]',
+        test: /\.(eot|otf|jpg|png|svg|ttf|woff|woff2)(\?v=[0-9.]+)?$/,
+        loader: 'url',
         include: [
           path.resolve(__dirname, 'node_modules'),
           path.resolve(__dirname, 'app/fonts'),

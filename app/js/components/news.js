@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment'	
 
+import bbcLogo from '../../images/bbc-logo.jpg'
+
 export class News extends React.Component {
 
 	state = {
@@ -31,6 +33,12 @@ export class News extends React.Component {
 		this.getData();
  	}
 
+ 	componentDidMount(){
+	  	window.setInterval(function () {
+	    	this.getData();
+	    }.bind(this), 60000);
+  	}
+
 
 	render() {
 
@@ -45,6 +53,7 @@ export class News extends React.Component {
 							return (
 								<li key={index}>
 									<div className="title">
+										<img src={bbcLogo} width="100" />
 										<p>
 											<span className="left">{item.title}</span>
 											<span className="right">{publishedAt}</span>

@@ -11,9 +11,30 @@ body {
 
 
 .container header {
+	width: 100%;
 	position: absolute;
 	top: 0;
+	clear: both;
 }
+.container header .clock {
+	width: 48%;
+	float: left;
+	padding: 1%;
+}
+.container header .clock h2{
+	font-size: 2rem;
+}
+.container header .clock span {
+	display: block;
+	font-size: 3rem;
+	text-align: center;
+}
+.container header .weather {
+	width: 48%;
+	padding: 1%;
+	float: right;
+}
+
 
 .container footer {
 	position: absolute;

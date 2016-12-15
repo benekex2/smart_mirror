@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'	
 
 export class Clock extends React.Component {
 
@@ -25,6 +24,9 @@ export class Clock extends React.Component {
 
       var seconds = currentdate.getUTCSeconds();
 
+      seconds = seconds + "";
+      if( seconds.length == 1 ){ seconds = "0" + seconds; }
+
       this.setState({
       	hours: hours,
         minutes: minutes,
@@ -44,11 +46,10 @@ export class Clock extends React.Component {
 
 	render() {
 
-		const date = moment().format('dddd, LL');
+		
 		
 		return (
 			<div className="city-row" ref="cityRow">
-				{date}
 		        <span className="city-time">{this.state.hours}:{this.state.minutes}:{this.state.seconds}</span>
 		    </div>
 	   	);
