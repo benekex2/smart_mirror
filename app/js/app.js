@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import moment from 'moment'	
 
 import '../css/app.css'
 import '../css/weather-icons.css'
@@ -11,12 +10,11 @@ import { News } from "./components/news.js"
 
 export class App extends React.Component {
    render() {
-   	 const date = moment().format('dddd, LL');
      return (
         <div className="container">
         	<header>
 	        	<div className="clock component">
-	        		<h2>{date}</h2>
+	        		
 	        		<Clock name="CityRow" UTCOffset="1"/>
 	        	</div>
 	        	<div className="weather component">

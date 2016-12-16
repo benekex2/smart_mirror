@@ -55,6 +55,11 @@ export class Weather extends React.Component {
 
 	}
 
+	floatOrNull = (value) => {
+	  const parsed = parseFloat(value);
+	  return isNaN(parsed) ? null : parsed;
+	};
+
 	componentWillMount() {
 		this.getData();
  	}
@@ -75,20 +80,33 @@ export class Weather extends React.Component {
 
     	return (
     		<div>
-        		{cityName}
-        		<div>
-					<i></i>
-					<p></p>
-				</div>
+        		<h2>Weather: {cityName}</h2>
+
+        		{currentWeather.main && currentWeather.wind && currentWeather.clouds && currentWeather.weather ? (
+					<div>
+						<p>Temperature: {currentWeather.main.temp}&#176;C</p>
+						<p>Humidity: {currentWeather.main.humidity} %</p>
+						<p>Pressure: {currentWeather.main.pressure} hpa</p>
+						<span>{currentWeather.wind.speed} m/s</span>
+						<span>{currentWeather.clouds.all} %</span>
+						<i className={`wi ${this.iconTable[currentWeather.weather[0].icon]}`}></i>	
+					</div>	
+				) :(null)}
+
+
         		{weatherList ? (weatherList.map((item, index) => {
         				const date = moment.unix(item.dt).format('dddd');
         				let icon = item.weather[0].icon;
-        				let classIcon = "wi "+this.iconTable[icon];	
+        				let classIcon = "wi " + this.iconTable[icon];
+        				let floatTemp = this.floatOrNull(item.temp.day);
+        				let roundTemp = Number((floatTemp).toFixed(1));
         				if(index > 0) {
         					return (
-        						<div key={index}>
+        						<div className="dayWeather" key={index}>
+        							<h3>{date}</h3>
         							<i className={classIcon}></i>
-									<p>{date} - {item.temp.day}</p>
+									<span>{roundTemp} &#176;C</span>
+									<span>{item.pressure} hpa</span>
 								</div>
 							);
         				} 
