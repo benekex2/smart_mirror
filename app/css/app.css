@@ -8,6 +8,7 @@ body {
 	background: #000;
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
+	position: relative;
 }
 
 
@@ -71,9 +72,8 @@ body {
 
 
 .container footer {
-	position: absolute;
-	bottom: 0;
-	height: 400px;
+	position: fixed;
+	bottom: 10px;
 	clear: both;
 }
 
@@ -90,6 +90,7 @@ body {
 
 .container footer ul li .image {
 	width: 20%;
+	padding-top: 20px;
 	float: left;
 }
 
