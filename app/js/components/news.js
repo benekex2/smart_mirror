@@ -1,7 +1,6 @@
 import React from 'react'
 import moment from 'moment'	
 
-import bbcLogo from '../../images/bbc-logo.jpg'
 
 export class News extends React.Component {
 
@@ -43,23 +42,21 @@ export class News extends React.Component {
 	render() {
 
 		const newsList = this.state.newsList;
+		const logo = this.props.image;
 		
     	return (
     		<div>
     			<ul>
         		{newsList ? (newsList.map((item, index) => {
-        				if(index < 3) {
+        				if(index < 2) {
         					const publishedAt = moment(item.publishedAt).format('MMMM Do YYYY, hh:mm');
 							return (
 								<li key={index}>
-									<div className="title">
-										<img src={bbcLogo} width="100" />
-										<p>
-											<span className="left">{item.title}</span>
-											<span className="right">{publishedAt}</span>
-										</p>
+									<div className="image">
+										<img src={logo} width="100" />
 									</div>
 									<div className="description">
+										<h3>{item.title} - {publishedAt}</h3>
 										<p>{item.description}</p>
 									</div>
 								</li>

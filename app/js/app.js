@@ -8,6 +8,11 @@ import { Weather } from "./components/weather.js"
 import { Clock } from "./components/clock.js"
 import { News } from "./components/news.js"
 
+import bbcLogo from '../images/bbc-logo.png'
+import cnnLogo from '../images/cnn-logo.png'
+import twpLogo from '../images/twp-logo.png'
+import twsjLogo from '../images/twsj-logo.png'
+
 export class App extends React.Component {
    render() {
      return (
@@ -22,7 +27,14 @@ export class App extends React.Component {
 	        	</div>
         	</header>
         	<footer>
-	        	
+	        	<div className="news component">
+	        		<News source="bbc-news" image={bbcLogo} />
+	        		<News source="the-washington-post" image={twpLogo} />
+	        	</div>
+	        	<div className="news component">
+	        		<News source="cnn" image={cnnLogo} />
+	        		<News source="the-wall-street-journal" image={twsjLogo} />
+	        	</div>
         	</footer>
         </div>
        );

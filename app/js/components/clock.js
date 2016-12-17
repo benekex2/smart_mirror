@@ -51,7 +51,10 @@ export class Clock extends React.Component {
 		return (
 			<div className="city-row" ref="cityRow">
             <h2>{this.state.date}</h2>
-		        <span className="city-time">{this.state.hours}:{this.state.minutes}:{this.state.seconds}</span>
+		        <span className="city-time">
+		        	<i className="wi wi-time-1"></i>
+		        	{this.state.hours}:{this.state.minutes}:{this.state.seconds}
+		        </span>
 		    </div>
 	   	);
 	}

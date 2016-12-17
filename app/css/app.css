@@ -33,6 +33,9 @@ body {
 	font-size: 3rem;
 	text-align: center;
 }
+.container header .clock i {
+	padding-right: 10px;
+}
 .container header .weather {
 	width: 28%;
 	padding: 1%;
@@ -85,19 +88,12 @@ body {
 	margin: 0 2%;
 }
 
-.container footer ul li .title {
-	border-bottom: solid 1px #fff;
-	padding-bottom: 5px;
-}
-
-.container footer ul li .title .left {
-	text-align: left;
-}
-
-.container footer ul li .title .right {
-	text-align: right;
+.container footer ul li .image {
+	width: 20%;
+	float: left;
 }
 
 .container footer ul li .description {
-	padding: 10px;
+	width: 80%;
+	float: left;
 }
