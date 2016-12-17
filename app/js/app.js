@@ -22,12 +22,7 @@ export class App extends React.Component {
 	        	</div>
         	</header>
         	<footer>
-	        	<div className="news component">
-	        		<News source="bbc-news" />
-	        	</div>
-	        	<div className="news component">
-	        		<News source="cnn" />
-	        	</div>
+	        	
         	</footer>
         </div>
        );

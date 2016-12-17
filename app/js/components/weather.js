@@ -84,29 +84,42 @@ export class Weather extends React.Component {
 
         		{currentWeather.main && currentWeather.wind && currentWeather.clouds && currentWeather.weather ? (
 					<div>
-						<p>Temperature: {currentWeather.main.temp}&#176;C</p>
-						<p>Humidity: {currentWeather.main.humidity} %</p>
-						<p>Pressure: {currentWeather.main.pressure} hpa</p>
-						<span>{currentWeather.wind.speed} m/s</span>
-						<span>{currentWeather.clouds.all} %</span>
-						<i className={`wi ${this.iconTable[currentWeather.weather[0].icon]}`}></i>	
-					</div>	
-				) :(null)}
+						<p>
+							<i className={`main wi ${this.iconTable[currentWeather.weather[0].icon]}`}></i> 
+							<span className="temp">{Number((currentWeather.main.temp).toFixed(1))}&#176;C</span>
+						</p>
+						<p>
+							<i className="additional wi wi-humidity"></i>
+							<span>{currentWeather.main.humidity} %</span>
+							<i className="additional wi wi-barometer"></i>
+							<span>{currentWeather.main.pressure} hpa</span>
+						</p>
+						<p>
+							<i className="additional wi wi-strong-wind"></i>
+							<span>{currentWeather.wind.speed} m/s</span>
+							<i className="additional wi wi-cloudy"></i>
+							<span>{currentWeather.clouds.all} %</span>
+						</p>
+					</div>
+				) : (null)}
 
 
         		{weatherList ? (weatherList.map((item, index) => {
         				const date = moment.unix(item.dt).format('dddd');
         				let icon = item.weather[0].icon;
-        				let classIcon = "wi " + this.iconTable[icon];
+        				let classIcon = "main wi " + this.iconTable[icon];
         				let floatTemp = this.floatOrNull(item.temp.day);
         				let roundTemp = Number((floatTemp).toFixed(1));
         				if(index > 0) {
         					return (
         						<div className="dayWeather" key={index}>
-        							<h3>{date}</h3>
-        							<i className={classIcon}></i>
+        							<h3>{date} <i className={classIcon}></i></h3>
+        							<p>
+        							<i className="additional wi wi-thermometer"></i>
 									<span>{roundTemp} &#176;C</span>
+									<i className="additional wi wi-barometer"></i>
 									<span>{item.pressure} hpa</span>
+									</p>
 								</div>
 							);
         				} 

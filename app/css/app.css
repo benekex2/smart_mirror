@@ -18,31 +18,54 @@ body {
 	clear: both;
 }
 .container header .clock {
-	width: 48%;
+	width: 68%;
 	float: left;
 	padding: 1%;
 }
 .container header .clock h2 {
-	width: 80%;
+	width: 55%;
 	text-align: center;
 	font-size: 2rem;
 }
 .container header .clock span {
-	width: 80%;
+	width: 55%;
 	display: block;
 	font-size: 3rem;
 	text-align: center;
 }
 .container header .weather {
-	width: 48%;
+	width: 28%;
 	padding: 1%;
 	float: right;
-	text-align: right;
+	text-align: left;
 }
-.container header .weather p{
+.container header .weather h2 {
+	margin-bottom: 5px;
+}
+.container header .weather p {
 	padding: 5px 0;
 	margin: 0;
 }
+.container header .weather .temp {
+	font-size: 3rem;
+	padding-left: 20px;
+}
+.container header .weather .main {
+	font-size: 3rem;
+}
+.container header .weather .additional {
+	font-size: 1.5rem;
+}
+.container header .weather span {
+	padding-left: 10px;
+	padding-right: 20px;
+	font-size: 1.5rem;
+}
+.container header .weather .dayWeather .main {
+	font-size: 2rem;
+	padding-left: 20px;
+}
+
 
 .container footer {
 	position: absolute;
