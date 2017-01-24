@@ -69,7 +69,19 @@ body {
 	font-size: 2rem;
 	padding-left: 20px;
 }
-
+.container header .weatherInside {
+	width: 55%;
+	text-align: center;
+	padding-top: 20px;
+}
+.container header .weatherInside i{
+	font-size: 1.5rem;
+	padding-left: 10px;
+}
+.container header .weatherInside span{
+	display: inline;
+	font-size: 1.5rem;
+}
 
 .container footer {
 	position: fixed;

@@ -7,6 +7,7 @@ import '../css/weather-icons.css'
 import { Weather } from "./components/weather.js"
 import { Clock } from "./components/clock.js"
 import { News } from "./components/news.js"
+import { WeatherInside } from "./components/weatherInside.js"
 
 import bbcLogo from '../images/bbc-logo.png'
 import cnnLogo from '../images/cnn-logo.png'
@@ -21,6 +22,7 @@ export class App extends React.Component {
 	        	<div className="clock component">
 	        		
 	        		<Clock name="CityRow" UTCOffset="1"/>
+	        		<WeatherInside />
 	        	</div>
 	        	<div className="weather component">
 	        		<Weather />

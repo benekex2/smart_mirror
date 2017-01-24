@@ -59,7 +59,8 @@ var config = {
           path.resolve(__dirname, 'app/fonts'),
           path.resolve(__dirname, 'app/images')
         ]
-      }
+      },
+      { test: /\.csv$/, loader: 'csv-loader' }
     ]
   },
   plugins: [
@@ -82,6 +83,9 @@ var config = {
   },
   sassLoader: {
     sourceMap: true
+  },
+  node: {
+    fs: "empty"
   }
 };
 
