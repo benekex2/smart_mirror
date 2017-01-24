@@ -15,7 +15,7 @@ while True:
 			os.system("xscreensaver-command -deactivate")
 			screen_saver = False
 	else:
-		time.sleep(30)
+		time.sleep(300)
 		os.system("xscreensaver-command -activate")
 		screen_saver = True 
 
